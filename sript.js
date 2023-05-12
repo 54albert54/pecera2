@@ -41,10 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
       if (randomEnemy == "enemy1M") this.enemies.push(new Metroid(this));
       if (randomEnemy == "enemy6M") this.enemies.push(new Metroid3X(this));
     }
-
-
   }
-
 
   class Enemy {
     constructor(game) {
@@ -56,9 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
       this.markedForDelection = false;
     }
     update(deltaTime) {
-
       if (this.y < 0 - this.height) this.markedForDelection = true;
-
       if (this.y > canvas.height) this.markedForDelection = true;
       if (this.x < 0 - this.width) this.markedForDelection = true;
       if (this.x > canvas.width) this.markedForDelection = true;
@@ -66,21 +61,14 @@ document.addEventListener('DOMContentLoaded', function () {
         if (this.frameX < this.maxFrame) this.frameX++;
         else this.frameX = 0;
         this.frameTimer = 0;
-
-
-
       } else {
         this.frameTimer += deltaTime
       }
     }
     draw(ctx) {
       ctx.drawImage(this.image, this.spriteWidth * this.frameX, 0, this.spriteWidth, this.spritheight, this.x, this.y, this.width, this.height)
-
     }
   }
-
-
-
   class Metroid extends Enemy {
     constructor(game) {
       super(game)
@@ -276,25 +264,17 @@ document.addEventListener('DOMContentLoaded', function () {
       this.y -= this.vx * deltaTime;
       //if (this.x < 0 - this.width)this.x=canvas.width;
       //if (this.x > canvas.width)this.x=0;
-
-
-
       if (this.x + this.width < 0) {
         this.flapSpeed = Math.floor(Math.random() * 3 + 1);
-
-
       }
-
     }
     draw(ctx) {
       ctx.save()
       ctx.globalAlpha = 0.8;
       super.draw(ctx)
       ctx.restore()
-
     }
   }
-
   class Varios {
     constructor(x, y, image, frame) {
       this.position = {
@@ -366,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function () {
     game.draw();
     [...halgas].forEach(object => object.draw());
     [...halgas].forEach(object => object.update(deltaTime));
-    // esto es un comentario 11 sddddd
+    // esto es un comentario 11 sddddd  albert
 
 
     requestAnimationFrame(animate)
