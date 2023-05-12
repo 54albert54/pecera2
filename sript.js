@@ -58,10 +58,11 @@ document.addEventListener('DOMContentLoaded', function () {
     update(deltaTime) {
 
       if (this.y < 0 - this.height) this.markedForDelection = true;
-
       if (this.y > canvas.height) this.markedForDelection = true;
       if (this.x < 0 - this.width) this.markedForDelection = true;
       if (this.x > canvas.width) this.markedForDelection = true;
+
+
       if (this.frameTimer > this.frameInterval) {
         if (this.frameX < this.maxFrame) this.frameX++;
         else this.frameX = 0;
